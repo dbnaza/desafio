@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">DesafioEnjoei</string>
+    <string name="title_home">Home</string>
+    <string name="title_search">Busca</string>
+    <string name="title_camera">Câmera</string>
+    <string name="title_mail">Mensagens</string>
+    <string name="title_profile">Perfil</string>
+    <string name="home_header_description">Farm 20% de desconto</string>
+    <string name="item_discount">-%1$d\%%</string>
+    <string name="home_error_title">turbulências na rede</string>
+    <string name="home_error_message">nosso cyber voo ta chacoalhando. \ndê uma checada na sua internet
+        \npra continuar com a gente:P
+    </string>
+    <string name="try_again">tentar de novo</string>
+    <string name="installments_with_discount">%1$d\%% off em até %2$dx</string>
+    <string name="installments">em até %1$dx</string>
+    <string name="more">ver mais</string>
+    <string name="share">compartilhar</string>
+    <string name="like">curtir</string>
+    <string name="comments">comentários</string>
+</resources>

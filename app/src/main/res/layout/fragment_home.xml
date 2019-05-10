@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:fitsSystemWindows="false">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:elevation="0dp">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                    android:id="@+id/imageHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:scaleType="centerInside"
+                    android:focusableInTouchMode="true"
+                    android:importantForAccessibility="yes"
+                    android:contentDescription="@string/home_header_description"
+                    android:layout_margin="@dimen/default_margin_screen"
+                    android:src="@drawable/banner"/>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ViewFlipper
+            android:id="@+id/listFlipper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageHeader">
+
+        <ProgressBar
+                android:layout_width="@dimen/progress_size_small"
+                android:layout_height="@dimen/progress_size_small"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginTop="@dimen/default_margin_screen"
+                android:indeterminateTint="@color/colorPrimaryDark"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listExams"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/default_margin_screen"
+                android:layout_marginBottom="@dimen/default_margin_screen"
+                android:layout_marginEnd="@dimen/default_margin_screen"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/errorContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:focusable="true">
+
+            <ImageView
+                    android:id="@+id/imgError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/cat_pixel"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/textErrorTitle"/>
+
+            <TextView
+                    android:id="@+id/textErrorTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/proxima_nova_bold"
+                    android:text="@string/home_error_title"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgError"
+                    app:layout_constraintBottom_toTopOf="@+id/textErrorMessage"/>
+
+            <TextView
+                    android:id="@+id/textErrorMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="14sp"
+                    android:textColor="@color/gray"
+                    android:text="@string/home_error_message"
+                    android:layout_marginTop="@dimen/default_margin_screen"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textErrorTitle"
+                    app:layout_constraintBottom_toTopOf="@+id/btnRetry"/>
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRetry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="top|center_horizontal"
+                    android:textColor="@color/pink"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:backgroundTint="@android:color/white"
+                    android:fontFamily="@font/proxima_nova_bold"
+                    android:text="@string/try_again"
+                    android:layout_marginTop="@dimen/default_margin_screen"
+                    android:textAllCaps="false"
+                    app:strokeColor="@color/light_gray"
+                    app:cornerRadius="4dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textErrorMessage"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ViewFlipper>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
