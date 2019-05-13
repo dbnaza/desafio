@@ -14,10 +14,10 @@ class HomeViewModel(private val productsDataSource: ProductsDataSource) : ViewMo
     val headerVisibilityLiveData = MutableLiveData<Int>()
 
     fun getProducts() {
-      /*  headerVisibilityLiveData.value = View.VISIBLE
+        headerVisibilityLiveData.value = View.VISIBLE
 
         flipperChildLiveData.value = ViewFlipperStates.STATE_LOADING
-*/
+
         productsDataSource.getProducts(object : ResultCallback<List<Product>> {
             override fun onSuccess(result: List<Product>) {
                 flipperChildLiveData.value = ViewFlipperStates.STATE_SUCCESS
